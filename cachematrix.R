@@ -44,15 +44,8 @@ cacheSolve <- function(x, ...) {
                 ## the inverse is possible only if matrix is a square matrix.
                 ## even if matrix is square the inverse will not be computed
                 ## if matrix is singular. 
-                if(nrow(data) == ncol(data)) {
-                        i <- solve(data)
-                        x$setinverse(i)
-                }
-                else {
-                        #matrix inverse not possible, becuase this is not a
-                        #square matrix.
-                        print("ERROR : inverse is not possible for the given matrix")
-                }
+                i <- solve(data,...)
+                x$setinverse(i)
         }
         
         ## retutn the inverse
